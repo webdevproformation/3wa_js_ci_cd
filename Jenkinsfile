@@ -3,12 +3,7 @@ pipeline {
 
     stages {
         stage('build image back') {
-            agent{
-                docker {
-                    image 'docker:dind'
-                    reuseNode true
-                }
-            }
+            
             steps {
                 sh 'echo "start build image"'
                 sh "docker build -t malikh551/back_node ./back"
