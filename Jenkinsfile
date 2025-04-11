@@ -25,7 +25,7 @@ pipeline {
                 sh "docker push malikh551/back_node"
                 sh "docker push malikh551/front_node"
             }
-        }
+        } 
         stage('docker compose sur EC2'){
             steps{
                 sh 'exécuter docker-compose up sur l EC2 créé'
