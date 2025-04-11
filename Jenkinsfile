@@ -5,7 +5,7 @@ pipeline {
         stage('build image back') {
             agent{
                 docker {
-                    image 'docker'
+                    image 'docker:dind'
                     reuseNode true
                 }
             }
