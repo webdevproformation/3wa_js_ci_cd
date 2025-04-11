@@ -12,7 +12,7 @@ services:
     image: malikh551/back_node
     container_name: back_projet
     ports:
-      - 3000:4000
+      - 4000:4000
   bdd:
     image: mongo
     ports:
