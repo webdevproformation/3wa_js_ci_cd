@@ -10,5 +10,14 @@ pipeline {
                 sh 'echo "start build image"'
             }
         }
+        stage('Push image back'){
+            environment{
+                DOCKER_HUB = credentials('docker-hub-creds')
+            }
+            steps{
+                sh 'echo ${DOCKER_HUB_PSW} | docker login -u ${DOCKER_HUB_USR} --password-stdin'
+                sh "docker push malikh551/back_node"
+                }
+            }
     }
 }
