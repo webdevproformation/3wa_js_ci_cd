@@ -28,7 +28,7 @@ pipeline {
         } 
         stage('docker compose sur EC2'){
             steps{
-                sh 'exécuter docker-compose up sur l EC2 créé'
+                sh 'echo "exécuter docker-compose up sur l EC2 créé"'
             }
         }
     }
