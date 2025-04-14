@@ -15,11 +15,14 @@ services:
       - 4000:4000
   bdd:
     image: mongo
-    ports:
-      - 27017:27017
+    restart: always
+    container_name: db_projet
+    environment:
+        MONGO_INITDB_DATABASE: app
     volumes:
       - dbdata:/data/db
       - dbconfig:/data/configdb
+      - ./bdd/init.js:/docker-entrypoint-initdb.d/init.js
 
 volumes:
   dbdata: {}

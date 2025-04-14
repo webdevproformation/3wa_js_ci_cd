@@ -1,24 +1,13 @@
-import { useState , useEffect } from "react"
+import Liste from "./components/Liste";
+import Form from "./components/Form";
+import { EtudiantContextProvider } from "./context/EtudiantContext";
 
 const App = () => {
-  const [etudiants, setEtudiants] = useState([]);
-  useEffect(() => {
-
-    fetch(import.meta.env.VITE_API_URI)
-    .then(function(reponse){
-      return reponse.json();
-    })
-    .then(function(data){
-      console.log(data);
-      setEtudiants(data) 
-    })
-    
-  }, [])
-  return <div>
-      <h1>mon application</h1>
-      <ul>
-        { etudiants.map((etudiant, id)  => (<li key={id}>{etudiant}</li>) ) }  
-      </ul>  
+    return <div>
+      <EtudiantContextProvider> 
+        <Form />
+        <Liste />
+      </EtudiantContextProvider>
     </div>
 }
 
